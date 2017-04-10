@@ -13,10 +13,10 @@ when 4608
   return "Startup"
 when 4609 
   return "Shutdown"
-//when 4624 
-//  return "Logon"
-//when 4634  
-//  return "Logoff"
+#when 4624 
+#  return "Logon"
+#when 4634  
+#  return "Logoff"
 when 4800  
   return "Lock"
 when 4801   
@@ -89,10 +89,9 @@ end
 		next
 	end	
 	
-	p [log.time_generated,log.event_id, log.category, description]
+	p [log.time_generated,log.event_id, log.source, log.category, description]
 	
-	csv << [log.time_generated,log.event_id, log.category, description]
-	 
+	csv << [log.time_generated,log.event_id, log.source, log.category, description]
 
   if log.time_generated < stopDate
     exit 0
